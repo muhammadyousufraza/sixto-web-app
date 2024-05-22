@@ -1,0 +1,156 @@
+label {
+    color: var(--secondry-color) !important;
+}
+
+.form-head h1 {
+    padding-bottom: 10px;
+    color: var(--secondry-color);
+    font-weight: 600;
+}
+
+.form-inner-wrap {
+    text-align: left;
+}
+
+.form-inner-wrap p {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    color: var(--secondry-color) !important;
+}
+
+.form-group input,
+.form-group select {
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 1px 0px 14px #e1dada;
+    margin-bottom: 20px;
+    color: var(--secondry-color);
+}
+
+.drop-wrapper {
+    position: relative;
+}
+
+.drop-wrapper::after {
+    content: var(--angle-down);
+    position: absolute;
+    right: 20px;
+    bottom: 57px;
+    padding: 0 1em;
+    font-family: var(--icon-family);
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+section.from-wrapper .form-head {
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.form-check input {
+    width: 25px !important;
+    height: 25px !important;
+    padding: 0px;
+    border-radius: 0px !important;
+    /* box-shadow: none; */
+    margin: 0px !important;
+}
+
+.form-check {
+    /* display: flex; */
+    font-size: 14px;
+}
+
+.form-check label {
+    padding-left: 10px;
+}
+
+.custom-file .uploadFile {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.form-group.align {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px !important;
+}
+
+span.bg-brown {
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.radio-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.radio-wrap label {
+    padding-left: 0px !important;
+}
+
+.form-group.bg-white {
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 1px 0px 14px #e1dada;
+    margin-bottom: 30px;
+}
+
+.form-inner-wrap .form-group {
+    padding-bottom: 20px;
+}
+
+.form-check p {
+    padding: 0px;
+}
+
+.form-inner-wrap .form-group label {
+    padding-bottom: 10px;
+    padding-left: 25px;
+}
+
+.custom-file {
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+.form-check label {
+    padding-left: 10px !important;
+}
+
+.form-group.bg-white p {
+    font-weight: 600;
+    text-align: center;
+}
+
+@media only screen and (max-width: 475px) {
+
+.form-inner-wrap p {
+    padding-left: 0px;
+}
+
+}

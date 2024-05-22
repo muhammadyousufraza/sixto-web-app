@@ -1,0 +1,275 @@
+
+.alert-trim {
+    display: inline-block;
+}
+
+.fit-content {
+  width: fit-content;
+}
+
+/* .border-light {
+  border: solid 1px ;
+  border-color: #d0d0d0;
+} */
+.border-left {
+  border-left: solid .5px ;
+  border-color: #d0d0d0;
+}
+
+.border-right {
+  border-right: solid 0.5px ;
+  border-color: #d0d0d0;
+}
+
+.border-bottom {
+  border-bottom: solid .5px ;
+  border-color: #d0d0d0;
+}
+
+.border-top {
+  border-top: solid .5px ;
+  border-color: #d0d0d0;
+}
+
+.dashboard-sidebar a {
+  color: black;
+}
+
+.border-25 {
+  border-radius: 25px 25px 25px 25px;
+}
+
+.dashboard-serach-container {
+  width: 400px;
+  border-radius: 50px;
+}
+.dashboard-serach-container input{
+  width: 100%;
+  border: solid 1px #d0d0d0;
+  border-color: black !important;
+  border-radius: 25px 25px 25px 25px !important;
+  border-radius: 50px;
+  border: 0px;
+}
+
+.dashboard-serach-container input:focus{
+  outline: none;
+}
+
+.dashboard-table-tr .last {
+  width: fit-content;
+  border-radius: 50px !important;
+  padding: 5px 15px !important;
+}
+
+.dashboard-header-chip {
+  border-radius: 50px;
+}
+
+.dashboard-payment-setting-chip {
+  border-radius: 50px;
+}
+
+.dashboard-document-pdf-chip {
+  border-radius: 50px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.bg-orange {
+  background-color: #be6318 !important;
+}
+
+.orange-text {
+  color: #be6318  !important;
+}
+
+.blue-gray-bg {
+  background-color: #1a3f52 !important;
+}
+
+.blue-gray-text {
+  background-color: #1a3f52  !important;
+}
+
+.orange-border {
+  border: solid;
+  border-color: #be6318  !important;
+}
+
+.border-radius-rounded-chip {
+  border-radius: 50px;
+}
+
+.weight-bold-600 {
+  font-weight: 600 !important;
+}
+
+.grey {
+  color: #bbbbbb !important;
+}
+
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.mobile-logout {
+  display: block;
+}
+.desktop-header {
+  display: flex;
+}
+
+
+.company-details-heading {
+  font-weight: 600;
+}
+.comapny-documents-heading {
+  font-weight: 600;
+}
+.mobile-header {
+  display: none !important;
+}
+.mobile-header-start-new-company {
+  display: none !important;
+}
+.mobile-name-container-header {
+  display: none  !important;
+}
+.side-bar-icon {
+  display: none;
+}
+.text-light {
+  color: #a0a0a0 !important;
+}
+.ur-pay-method {
+  font-size: 20px !important;
+  font-weight: 700;
+}
+.visa-icon {
+  text-align: center;
+    font-size: 42px;
+}
+.w-100vh {
+  width: 100vh;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 425px){
+  .dashboard-sidebar {
+    position: absolute;
+    width: 100%;
+    background: white;
+  }
+  .mobile-logout {
+    display: block;
+  }
+  .main-logo-wrapper img {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 0px 0px 7px;
+  }
+  .desktop-header {
+    display: none;
+  }
+  .start-new-company-text-mobile {
+  font-size: 15px;
+  }
+  .mobile-header-start-new-company {
+    justify-content: space-evenly !important;
+    display: flex !important;
+  }
+ 
+  .mobile-name-container-header {
+    display: block !important;
+  }
+  .mobile-header {
+    display: block !important;
+  }
+  .main-logo-wrapper-container {
+    width: 25%;
+  }
+  .mobile-header-start-new-company {
+    width: 75%;
+  }
+  .side-bar-icon {
+    display: block;
+    margin: 6px;
+    float: right;
+  }
+  .mobile-view-container {
+    overflow: scroll;
+  }
+  .payment-setting-conatiner {
+    overflow: scroll;
+  }
+  .Virtual-Mailbox-table {
+    width: 100vh;
+  }
+  .dashboard-index {
+    width: 100vh;
+  }
+  .main-logo-wrapper img {
+    width: 35%;
+  }
+}
+

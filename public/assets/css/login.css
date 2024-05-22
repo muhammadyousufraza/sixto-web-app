@@ -1,0 +1,245 @@
+.form-wrapper {
+    max-width: 80%;
+    border-radius: 0px;
+    margin: auto;
+    padding: 30px 23%;
+    box-shadow: 20px 20px 80px rgb(206, 206, 206)
+}
+body {
+    font-family: Montserrat;
+    /*overflow-y: hidden;*/
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Montserrat;
+  }
+  
+
+.form-wrapper form {
+    display: block;
+}
+.form-wrapper img {
+    width: 200px;
+}
+
+.form-wrapper .figure {
+    justify-content: center;
+    display: flex;
+}
+.form-wrapper form a {
+    color: var(--blue-color);
+}
+.form-wrapper form .input-field {
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 0px solid #c1bdbdd6;
+    color: #8d8d8dd6;
+    box-shadow: 4px 3px 7px rgb(206, 206, 206);
+}
+
+.form-wrapper form .input-field:hover {
+    color: var(--primary-color);
+    border: 1px solid #c1bdbdd6;
+    box-shadow: none;
+    transition: .5s;
+}
+
+.form-wrapper form input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0px 2px;
+}
+
+.fa-eye-slash.btn {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+.form-wrapper form .option {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer
+}
+
+.form-wrapper form .option label.text-muted {
+    display: block;
+    cursor: pointer
+}
+
+.form-wrapper form .option input {
+    display: none
+}
+
+.form-wrapper form .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border: 4px solid #020202;
+    cursor: pointer
+}
+
+.form-wrapper form .option input:checked~.checkmark:after {
+    display: block
+}
+
+.form-wrapper form .option .checkmark:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: var(--primary-color);
+    position: absolute;
+    top: 48%;
+    left: 53%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 300ms ease-in-out 0s
+}
+
+.form-wrapper form .option input[type="radio"]:checked~.checkmark {
+    background: #fff;
+    transition: 300ms ease-in-out 0s;
+    border: 1px solid var(--primary-color);
+}
+
+.form-wrapper form .option input[type="radio"]:checked~.checkmark:after {
+    transform: translate(-50%, -50%) scale(1)
+}
+
+.form-wrapper form .btn.btn-block {
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    width: 100%;
+    border-radius: 11px;
+}
+
+.form-wrapper form .btn.btn-block:hover {
+    background-color: var(--secondry-color)
+}
+
+
+@media (max-width: 991px) {
+    header#myHeader {
+        padding-bottom: 60px;
+    }
+    .form-wrapper {
+        padding: 30px 10px;
+    }
+
+}
+
+@media(max-width:424px) {
+    .form-wrapper {
+        padding: 30px 10px;
+    }
+
+    .form-wrapper form .option {
+        position: relative;
+        padding-left: 22px
+    }
+
+    .form-wrapper form .option label.text-muted {
+        font-size: 0.95rem
+    }
+
+    .form-wrapper form .checkmark {
+        position: absolute;
+        top: 2px
+    }
+
+    .form-wrapper form .option .checkmark:after {
+        top: 50%
+    }
+
+    .form-wrapper form #forgot {
+        font-size: 0.95rem
+    }
+}
+
+@media only screen and (max-width: 475px) {
+
+    a.btn {
+        font-size: 10px;
+    }
+  
+    .form-head p {
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .form-content p {
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    .mobile-menu .nveMenu ul li a {
+    }
+  
+    .mobile-home-info-slider {
+        display: block !important;
+    }
+  
+    .mobile-home-fotter  {
+        display: block !important;
+    }
+    .desktop-home-fotter {
+        display: none !important;
+    }
+    .desktop-home-info {
+      display: none !important;
+    }
+    .esktop-review-ratting  {
+      display: none !important;
+    }
+    .mobile-review-ratting-slider {
+      display: block !important;;
+    }
+    .desktop-review-ratting {
+      display: none !important;
+    }
+    .home-text-sub-text {
+      font-size: 12px !important;
+      color: #fff;
+      padding: 12px 0px;
+    }
+    .home-text-heading {
+      font-size: 15px !important;
+      color: #fff;
+      padding: 12px 0px;
+      font-weight: bold;
+    }
+    .home-text-last-text {
+      font-size: 12px !important;
+      padding: 12px 0px;
+      color: #fff;
+    }
+    .home-text-last-text-link {
+      font-size: 12px !important;
+      text-decoration: underline;
+      padding: 12px 0px;
+      color: #fff;
+    }
+    .bg-image {
+      height: calc(100vh - 43vh) !important;
+    }
+  
+  
+  }
+
+  .desktop-home-fotter {
+    display: block;
+  }

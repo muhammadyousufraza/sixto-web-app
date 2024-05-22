@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sixto-app
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8084:80"
+    networks:
+      - laravel
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: sixto-db-container
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sixto
+      MYSQL_USER: sixto_user
+      MYSQL_PASSWORD: sixto_pwd
+      MYSQL_ROOT_PASSWORD: root_pwd
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - laravel
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: sixto-phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    environment:
+      PMA_HOST: db
+    networks:
+      - laravel
+
+networks:
+  laravel:
+
+volumes:
+  db_data:

@@ -1,0 +1,194 @@
+.order-wrapper {
+    padding: 50px 0 20px 0px;
+}
+
+.order-wrapper .shadow-btn {
+    box-shadow: 1px 2px 5px -3px gray;
+}
+
+.order-wrapper .form-head p {
+    padding-bottom: 25px;
+}
+
+.order-wrapper a {
+    text-transform: capitalize;
+    border-radius: 50px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.grey-btn {
+    background: #fff;
+    color: #e6e8e9;
+}
+
+.grey-btn:hover {
+    background-color: var(--secondry-color);
+    color: #fff;
+}
+
+.order-wrapper .form-content h2 {
+    color: var(--secondry-color);
+}
+
+.order-wrapper .form-content {
+    padding: 60px 0px;
+}
+
+.order-wrapper .form-content p {
+    padding: 20px 0px;
+}
+
+.plan-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* overflow: hidden; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 370px;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.plan-card:hover {
+    transform: scale(1.05);
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondry-color);
+}
+
+.plan-price {
+    color: var(--secondry-color);
+    margin: 10px 0 0;
+    font-weight: 600;
+}
+
+.plan-features,
+.plane-desc {
+    list-style-type: none;
+    padding-bottom: 30px;
+}
+
+.plan-features li {
+    margin-bottom: 5px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.plan-card .header {
+    border: 1px solid var(--primary-color);
+    width: 50%;
+    margin: -35px auto 0;
+    background: #fff;
+    font-size: 16px;
+    padding: 5px 0px;
+    text-transform: uppercase;
+}
+
+.plan-card .save span {
+    display: block;
+}
+
+.plan-card .save {
+    background: #6d94ff;
+    width: 20%;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+    margin: -20px 0 auto auto;
+    color: #fff;
+}
+
+.order-wrapper .form-content h2 {
+    color: var(--secondry-color);
+}
+
+.plan-card a {
+    width: 100%;
+    margin: 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-card a i {
+    margin-left: 10px;
+}
+
+.plane-desc .heading {
+    text-transform: uppercase;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+    padding: 10px 0px;
+    text-align: center;
+    display: block;
+}
+
+.plane-desc li {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.plane-desc li i {
+    color: #0db6b6;
+    margin-right: 10px;
+}
+
+.plan-features li span {
+    font-size: 18px;
+}
+
+.plan-features li span.circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-weight: bold;
+    font-size: 14px !important;
+    margin-right: 10px;
+    border: 1px solid #555;
+}
+
+.nav-wrap a {
+    border-radius: 10px;
+    margin: 0px;
+}
+
+.nav-wrap {
+    padding: 40px 0px 20px;
+    text-align: left;
+    width: 63%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .plan-card {
+        margin-bottom: 50px;
+    }
+
+    .nav-wrap {
+        padding: 0px;
+        width: 90%;
+    }
+
+    .order-wrapper {
+        padding-top: 100px;
+    }
+}
