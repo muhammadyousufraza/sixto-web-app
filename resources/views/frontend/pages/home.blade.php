@@ -35,31 +35,31 @@
         <!-- mobile-nav -->
         <div class="mobile-menu">
             <div class="mob-main-logo-wrapper">
-                <img src="{{ asset('assets/Images/logo.png')}}" class="img-fluid" alt="logo-img">
+                <a href="{{ route('home.page') }}/"><img src="{{ asset('assets/Images/logo.png')}}" class="img-fluid" alt="logo-img"></a>
             </div>
             <div class="circle" id="navbar"><i class="fa fa-bars" aria-hidden="true"></i></div>
             <div class="nveMenu text-left">
                 <div class="mobile-cross close-btn-nav" id="navbar"><i class="fas fa-times" aria-hidden="true"></i>
                 </div>
                 <div>
-                    <a href="{{ route('home.page') }}"><img src="{{ asset('assets/Images/logo.png')}}" class="img-fluid" alt="main logo"></a>
+                    <a href="{{ route('home.page') }}/"><img src="{{ asset('assets/Images/logo.png')}}" class="img-fluid" alt="main logo"></a>
                 </div>
                 <ul>
-                     <li><a class="active" href="/index.php/account-tax">Accounting and Tax</a></li>
+                    <li><a class="active" href="{{ route('account.page') }}">Accounting and Tax</a></li>
                     <li class="dropdowns-menu ">
-                        <a href="/index.php/migracion" >Migracion</a>
+                        <a href="{{ route('migracion.page') }}">Migracion</a>
                     </li>
                     <li class="dropdowns-menu ">
-                         <a href="{{ route('notarial.page')}}">Notarial</a>
+                         <a href="{{ route('notarial.page') }}">Notarial</a>
                     </li>
-                    <li><a href="/index.php/pricing">Pricing</a></li>
-                    <li><a href="/index.php/about-us">About us</a></li>
-                    <li><a href="/index.php/company" class="brown-btn btn">Form a Company</a></li>
-                    @if(empty(session('user_id')))
-                                <li><a href="{{route('login.page')}}">Login</a></li>
-                                @else
-                                <li><a href="{{route('customer.logout')}}">Logout</a></li>
-                                @endif
+                    <li><a href="{{ route('pricing.page') }}">Pricing</a></li>
+                    <li><a href="{{ route('about.page') }}">About us</a></li>
+                    <li class="half"><a href="{{ route('company.page') }}" class="brown-btn btn">Form a Company</a></li>
+                   @if(empty(session('user_id')))
+                    <li class="half"><a href="{{route('login.page')}}" class="blue-btn btn">Login</a></li>
+                    @else
+                    <li class="half"><a href="{{route('customer.logout')}}" class="blue-btn btn">Logout</a></li>
+                    @endif
                 </ul>
             </div>
             <div class="overlay"></div>
@@ -117,7 +117,7 @@
                             <input type="text" class="w-75" name="companyName" placeholder="Enter your preferred buisness name">
                             <button  class="brown-btn btn">start now</button>
                         </form>
-                        <p class="home-text-last-text">Not sure what type of business entity to start? <a class="home-text-last-text-link" href="javascript:;">Explore all your
+                        <p class="home-text-last-text">Not sure what type of business entity to start? <a class="home-text-last-text-link" href="{{ route('company.page') }}">Explore all your
                                 options.</a></p>
                     </div>
                 </div>
@@ -266,11 +266,11 @@
                 <h2>Proudly recommended by our affiliate partners</h2>
                 <div class="log-wrap">
                     <ul>
-                        <li><img src="{{ asset('assets/Images/client-logo-1.jpg')}}" class="img-fluid" alt="Forbes"></li>
-                        <li><img src="{{ asset('assets/Images/client-logo-2.jpg')}}" class="img-fluid" alt="Forbes"></li>
-                        <li><img src="{{ asset('assets/Images/client-logo-3.jpg')}}" class="img-fluid" alt="Forbes"></li>
-                        <li><img src="{{ asset('assets/Images/client-logo-4.jpg')}}" class="img-fluid" alt="Forbes"></li>
-                        <li><img src="{{ asset('assets/Images/client-logo-5.jpg')}}" class="img-fluid" alt="Forbes"></li>
+                        <li><img src="{{ asset('assets/Images/client-logo-1.png')}}" class="img-fluid" alt="Forbes"></li>
+                        <li><img src="{{ asset('assets/Images/client-logo-2.png')}}" class="img-fluid" alt="Forbes"></li>
+                        <li><img src="{{ asset('assets/Images/client-logo-3.png')}}" class="img-fluid" alt="Forbes"></li>
+                        <li><img src="{{ asset('assets/Images/client-logo-4.png')}}" class="img-fluid" alt="Forbes"></li>
+                        <li><img src="{{ asset('assets/Images/client-logo-5.png')}}" class="img-fluid" alt="Forbes"></li>
                     </ul>
                 </div>
             </div>
@@ -337,74 +337,71 @@
                     <p>Not sure where to start? Start by selecting your service path below.</p>
                 </div>
                 <div class="w3-content w3-display-container mobile-home-info-slider">
-        <div class="homeInfoSlider" style="width:100%">
-            <div class="card home-info-slider-card">
-                <div class="card-body">
-                <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('assets/Images/4.png') }}" class="card-img-top" alt="From a Company">
+                    <div class="homeInfoSlider" style="width:100%">
+                        <div class="card home-info-slider-card">
                             <div class="card-body">
-                                <h5 class="card-title">Form a Company</h5>
-                                <p class="card-text">Start your company, and open bank accounts to start your Journey in Costa Rica</p>
-                                <a href="/index/company" class="brown-btn btn px-4">Form a Company</a>
+                            <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <img src="{{ asset('assets/Images/4.png') }}" class="card-img-top" alt="From a Company">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Form a Company</h5>
+                                            <p class="card-text">Start your company, and open bank accounts to start your Journey in Costa Rica</p>
+                                            <a href="/index/company" class="brown-btn btn px-4">Form a Company</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homeInfoSlider" style="width:100%">
+                        <div class="card home-info-slider-card">
+                            <div class="card-body">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <img src="{{ asset('assets/Images/5.png') }}" class="card-img-top" alt="Accounting & Tax">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Accounting & Tax</h5>
+                                            <p class="card-text">Manage and change your company details. </p>
+                                        <a href="/index/account-tax" class="brown-btn btn px-4">Accounting & Tax</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homeInfoSlider" style="width:100%">
+                        <div class="card home-info-slider-card">
+                            <div class="card-body">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <img src="{{ asset('assets/Images/6.png') }}" class="card-img-top" alt="Notarial">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Notarial</h5>
+                                            <p class="card-text">File a Trademark or Copyright Application</p>
+                                            <a href="/index/notarial" class="brown-btn btn px-4">Notarial</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homeInfoSlider" style="width:100%">
+                        <div class="card home-info-slider-card">
+                            <div class="card-body">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card">
+                                        <img src="{{ asset('assets/Images/7.png') }}" class="card-img-top" alt="Migration">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Migration</h5>
+                                            <p class="card-text">Get More Information</p>
+                                            <a href="/index/migracion" class="brown-btn btn px-4">Migration</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="homeInfoSlider" style="width:100%">
-            <div class="card home-info-slider-card">
-                <div class="card-body">
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('assets/Images/5.png') }}" class="card-img-top" alt="Accounting & Tax">
-                            <div class="card-body">
-                                <h5 class="card-title">Accounting & Tax</h5>
-                                <p class="card-text">Manage and change your company details. </p>
-                            <a href="/index/account-tax" class="brown-btn btn px-4">Accounting & Tax</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="homeInfoSlider" style="width:100%">
-            <div class="card home-info-slider-card">
-                <div class="card-body">
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('assets/Images/6.png') }}" class="card-img-top" alt="Notarial">
-                            <div class="card-body">
-                                <h5 class="card-title">Notarial</h5>
-                                <p class="card-text">File a Trademark or Copyright Application</p>
-                                <a href="/index/notarial" class="brown-btn btn px-4">Notarial</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="homeInfoSlider" style="width:100%">
-            <div class="card home-info-slider-card">
-                <div class="card-body">
-                    <div class="col-md-6 mb-4">
-                        <div class="card">
-                            <img src="{{ asset('assets/Images/7.png') }}" class="card-img-top" alt="Migration">
-                            <div class="card-body">
-                                <h5 class="card-title">Migration</h5>
-                                <p class="card-text">Get More Information</p>
-                                <a href="/index/migracion" class="brown-btn btn px-4">Migration</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
 
                 <!-- Card 1 -->
                 <div class="desktop-home-info row">

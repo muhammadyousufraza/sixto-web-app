@@ -23,25 +23,17 @@ Route::get('/about-us', [App\Http\Controllers\HomeController::class,'about'])->n
 Route::get('/pricing', [App\Http\Controllers\HomeController::class,'pricing'])->name('pricing.page');
 Route::get('/company', [App\Http\Controllers\HomeController::class,'company'])->name('company.page');
 Route::get('/company-profle', [App\Http\Controllers\CompanyController::class,'companyProfile'])->name('company.profile.page');
-Route::get('/company-profle-new', [App\Http\Controllers\CompanyController::class,'companyProfileNew']);//->name('company.profile.page');
-Route::get('/company-profle-updated', [App\Http\Controllers\CompanyController::class,'companyProfileUpdated'])->name('company.profile.updated.page');//->name('company.profile.page');
-Route::get('/checkout-page', [App\Http\Controllers\CompanyController::class,'checkout'])->name('checkout.page.page');
 
 // Company Create Routes
 Route::post('/create-company', [App\Http\Controllers\CompanyController::class,'callCompanyRegistrationApi'])->name('company.create');
 Route::post('/upload-company-docs', [App\Http\Controllers\CompanyController::class,'processUploadedDoc'])->name('company.docs.upload');
 // Route::get('/abc', [App\Http\Controllers\CompanyController::class,'uploadDoc'])->name('file.upload');
 // Route::get('/xyz', [App\Http\Controllers\CompanyController::class,'uploadDocWithId'])->name('file.upload');
-Route::get('/get-user-company', [App\Http\Controllers\CompanyController::class,'getCompanyByUser'])->name('company.user');
-
 Route::get('/user', 'App\Http\Controllers\UserController@test')->name('create.user');
 
 // Payment Routes
 Route::get('payment','App\Http\Controllers\PaymentController@show')->name('payment');
-Route::post('payment','App\Http\Controllers\PaymentController@processPayment')->name('stripe.payment');
-
-// Route::post('payment','App\Http\Controllers\PaymentController@submitPayment')->name('stripe.post.payment');
-
+Route::post('payment','App\Http\Controllers\PaymentController@processPayment')->name('stripe.post');
 Route::get('initiatePayment','App\Http\Controllers\HomeController@initiatePayment')->name('initiate.payment');
 
 // Customer Dashboard Routes
@@ -64,7 +56,6 @@ Route::prefix('customer')->group(function () {
 		Route::get('/documents', 'App\Http\Controllers\Customer\DashboardController@CompletedDocuments')->name('customer.documents');
 		Route::get('/virtualMail', 'App\Http\Controllers\Customer\DashboardController@VirtualMailbox')->name('customer.mailbox');
 		Route::get('/serviceTax', 'App\Http\Controllers\Customer\DashboardController@ServiceTax')->name('customer.servicetax');
-		Route::get('/company-details', 'App\Http\Controllers\Customer\DashboardController@companyDetails')->name('customer.company.details');
 		
 		Route::get('/ForgetPassword', 'App\Http\Controllers\Customer\ForgetPasswordController@index')->name('customer.forget.password');
 		Route::get('/SettingPayment', 'App\Http\Controllers\Customer\SettingController@payment')->name('customer.payment.setting');

@@ -1,30 +1,54 @@
 <header id="myHeader">
-    <div class="bg-info py-3 blue-gray-bg">
-        <p class="m-auto text-center h6 text-white">Looking of Sixto? we're still here, but with a new name. Learn More></p>
+    <div class="bg-info py-3 blue-gray-bg topbar">
+        <p class="m-auto text-center h6 text-white">Looking of Sixto? we're still here, but with a new name. <a href="#">Learn More <i class="fa-solid fa-chevron-right"></i></a> </p>
     </div>
-    <div class="row px-3 w-100">
+    <div class="row px-3 w-100 main-header-a">
         <div class="col-3 p-0">
-        <div class="main-logo-wrapper">
-                                <a href="{{ route('home.page') }}/">
-                                    <img src="{{ asset('assets/Images/logo.png')}}"  class="img-fluid" alt="logo-img">
-                                </a>
-                            </div>
+            <div class="main-logo-wrapper">
+                <a href="{{ route('home.page') }}/">
+                    <img src="{{ asset('assets/Images/logo.png')}}"  class="img-fluid" alt="logo-img">
+                </a>
+            </div>
         </div>
         <div class="d-flex p-0 justify-content-between col-9 align-items-center">
-            <div>
-                <div class="d-flex align-items-center">
+            <div class="h-left">
+                <div class="d-flex align-items-center company-pro">
                     <p class="h6 py-2 px-2 rounded-circle bg-orange text-white">ZA</p>
-                    <p class="h6 px-2">ZAIN AHMED</p>
+                    <p class="h6 px-2">{{ session('logged_in_user', 'User Name') }}</p>
                 </div>
             </div>
-            <div class="d-flex align-items-center">
-                <div class="bg-orange orange-border  dashboard-header-chip fit-content align-items-center m-2">
-                    <p class=" h6 p-2 align-items-center m-0  text-white"><i class="fa-solid fa-paper-plane  px-2"></i>START A NEW COMPANY</p>
+            <div class="d-flex align-items-center h-right">
+                <div class="cta">
+                    <a href=""><span class="sixto-icon  icon-add"></span> START A NEW COMPANY</a>
                 </div>
-                <div>
-                    <p class="h6"> <i class="fa-solid fa-paper-plane px-2"></i> <a href="{{route('customer.logout')}}">Logout</a></p>
+                <div class="logout">
+                    
                 </div>
+                <div class="navbar profile-bar">
+                    <div class="profile">
+                        <img src="{{ asset('assets/Images/pro.png')}}" alt="Profile Picture" class="profile-pic">
+                        <div class="dropdown">
+                            <button class="dropbtn">Profile <i class="arrow-down"></i></button>
+                            <div class="dropdown-content">
+                                <a href="#view-profile">View Profile</a>
+                                <a href="#">Change Password</a>
+                                <!-- <a href="#">Add/ Edit Information</a> -->
+                                <hr class="dropdown-divider">
+                                <a href="#logout">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="notifications">
+                <span class="notify">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="number">
+                        09
+                    </span>
+                </span>
             </div>
+            </div>
+
         </div>
     </div>
         <!-- mobile-nav -->

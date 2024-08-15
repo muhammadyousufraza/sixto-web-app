@@ -22,6 +22,24 @@ class CompanyController extends Controller
         return view('frontend.pages.companyProfile', compact('packages1', 'packages2', 'companyName'));
     }
 
+
+    public function companyProfileNew(Request $request)
+    {
+        $companyName = $request->has('companyName') ? $request->input('companyName') : '';
+        $packages1 = $this->getPackageType1();
+        $packages2 = $this->getPackageType2();
+        // dd($packages1, $packages2);
+        return view('frontend.pages.companyProfileNew', compact('packages1', 'packages2', 'companyName'));
+    }
+    public function companyProfileUPdated(Request $request)
+    {
+        $companyName = $request->has('companyName') ? $request->input('companyName') : '';
+        $packages1 = $this->getPackageType1();
+        $packages2 = $this->getPackageType2();
+        // dd($packages1, $packages2);
+        return view('frontend.pages.companyProfileUpdated', compact('packages1', 'packages2', 'companyName'));
+    }
+
     public function RegisterComapny(Request $request)
     {
 
@@ -132,11 +150,18 @@ class CompanyController extends Controller
             ->post($baseUrl, json_decode($postData, true));
 
         Log::info($response);
+
         if($response->getStatusCode() != 201){
+
+            Log::info('False response --- ');
+            Log::info($response);
+            Log::info($response->getStatusCode());
             return json_encode(['success'=>false], 500);
         }
-        return json_encode(['success'=>true]);
+        return json_encode($response);
         } catch (\Exception $ex) {
+            Log::info('ERROR');
+            Log::info($ex);
             return json_encode(['success'=>false], 500);
         }
         
@@ -247,5 +272,24 @@ class CompanyController extends Controller
         $response = $client->request('GET', $baseUrl);
 
         return $apiResponse = json_decode($response->getBody(), true);
+    }
+
+    public function getCompanyByUser()
+    {
+        
+        $client = new Client();
+        $baseUrl = Config::get('services.sixton_backend.base_url');
+        $baseUrl = $baseUrl . "api/company/by-user/33";
+        dd($baseUrl);
+        $response = $client->request('GET', $baseUrl);
+
+        $apiResponse = json_decode($response->getBody(), true);
+        dd($apiResponse);
+    }
+
+
+    public function checkout(Request $request)
+    {
+        return view('frontend.pages.checkout');
     }
 }

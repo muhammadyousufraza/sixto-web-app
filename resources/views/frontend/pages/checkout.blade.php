@@ -10,12 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -47,11 +47,7 @@
                     <li><a href="/index.php/pricing">Pricing</a></li>
                     <li><a href="/index.php/about-us">About us</a></li>
                     <li><a href="/index.php/company" class="brown-btn btn">Form a Company</a></li>
-                    @if(empty(session('user_id')))
-                                <li><a href="{{route('login.page')}}">Login</a></li>
-                                @else
-                                <li><a href="{{route('customer.logout')}}">Logout</a></li>
-                                @endif
+                    <li><a href="/index.php/customer/login">Login</a></li>
                 </ul>
             </div>
             <div class="overlay"></div>
@@ -82,11 +78,7 @@
                                 <li><a href="{{ route('pricing.page') }}">Pricing</a></li>
                                 <li><a href="{{ route('about.page') }}">About us</a></li>
                                 <li><a href="{{ route('company.page') }}" class="brown-btn btn">Form a Company</a></li>
-                                @if(empty(session('user_id')))
-                                <li><a href="{{route('login.page')}}">Login</a></li>
-                                @else
-                                <li><a href="{{route('customer.logout')}}">Logout</a></li>
-                                @endif
+                                <li><a href="{{ route('login.page') }}">Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,12 +91,12 @@
     <!-- end -->
     <!-- section 1 start -->
     
-    <section class="sec1 bg-image py-4 pg-banner" style="background: url('{{ asset('assets/Images/Notary.png') }}');">
+    <section class="sec1 bg-image inner-page-header py-4 pg-banner" style="background: url('{{ asset('assets/Images/Notary.png') }}');">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12">
                     <div class="inner-wrap">
-                        <h1>Pricing</h1>
+                        <h1>Checkout</h1>
                     </div>
                 </div>
             </div>
@@ -112,81 +104,21 @@
     </section>
     <!-- section 1 end -->
       <!-- About section one-->
-      <section class="py-5 bg-light" id="scroll-target">
-        <div class="container px-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xxl-6">
-                    <div class="text-center my-5">
-                        <h1 class="fw-bolder mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-                        <p class="lead fw-normal text-muted mb-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse unde, 
-                            amet excepturi quasi sunt reprehenderit aliquam fugiat sit illum 
-                            repudiandae voluptate? Reiciendis,
-                             quisquam porro! Veniam voluptatem quaerat laborum maiores odit!
-                        </p>
-                        <!-- <a class="btn btn-primarya btn-lga brown-btn btn px-4" href="#scroll-target">Contact Us</a> -->
-                    </div>
+      <section class="sec8 py-5 px-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    
+                </div>
+                <div class="col-md-6 col-sm-12 m-auto">
+                   
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="contact-form card">
-                        <div class="card-body">
-                            <h3>Contact Us</h3>
-                            <form id="Contact_form">
-                                <div class="form-body">
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                          <label>Full Name</label>
-                                          <input type="text" class="form-control" id="" name="" placeholder="Enter Full Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                          <label>Email Address</label>
-                                          <input type="text" class="form-control" id="" name="" placeholder="Enter Email Address" required>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Phone </label>
-                                          <input type="text" class="form-control" id="" name="" placeholder="Enter Phone No" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                          <label>Country</label>
-                                          <select id="inputNationnal2" class="form-control" name="firstShareholderNationality" required="">
-                                            <option value="0">Choose...</option>
-                                          </select>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                          <label>Service</label>
-                                          <select class="form-control" required>
-                                              <option value="0">Accounting & Tax</option>
-                                              <option value="1">Notarial</option>
-                                              <option value="2">Migration</option>
-                                          </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                          <label>Message</label>
-                                          <textarea class="form-control" placeholder="Type Message"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-ftr">
-                                    <button  href="#" class="brown-btn btn" type="submit" id="submit_btn">Contact Us</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-             </div>
         </div>
     </section>
             <!-- About section two-->
-     <!-- footer start  -->
-    <footer class="bg-blue text-white px-5 desktop-home-fotter">
+   <!-- footer start  -->
+   <footer class="bg-blue text-white desktop-home-fotter">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -232,7 +164,7 @@
                         <p>Subscribe our newsletter to get our latest update & news</p>
                         <form id="subscribe_newsletter" class="form-horizontal newsletter-subscription">
                             <div id="newsletter-message"></div>
-                            <div class="form-row d-flex  w-100">
+                            <div class="form-row d-flex w-100">
                                 <input type="text" id="email" name="email" placeholder="Your mail address">
                                 <button type="submit" class="btn brown-btn btn-xs"><i class="fa-solid fa-paper-plane"></i></button>
                                 <div class="error-message" style="color:red;"></div>
@@ -244,16 +176,18 @@
         </div>
         <hr class="border">
         <div class="copyright">
-            <div class="copyrightcontent">
-                <p class="m-0"> Copyright © Sixto Roddriguez. | Website Design & Developed By Just Digital </p>
-            </div>
-            <div class="footer-links my-0">
-                <ul>
-                    <li><a href="javascript:;"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="javascript:;"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="javascript:;"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                  
-                </ul>
+            <div class="container">
+                <div class="copyrightcontent">
+                    <p class="m-0"> Copyright © Sixto Roddriguez. | Website Design & Developed By Just Digital </p>
+                </div>
+                <div class="footer-links my-0">
+                    <ul>
+                        <li><a href="javascript:;"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="javascript:;"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="javascript:;"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                      
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>

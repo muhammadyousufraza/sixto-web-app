@@ -45,9 +45,10 @@ class LoginController extends Controller
         if ($response->getStatusCode() == 200) {
             $token = $response['token'];
             Session::put('user_id', $response['userId']);
+            Session::put('logged_in_user', $response['userDetail']['firstName']);
             Session::put('api_token', $token);
             if (Session::get('previous_url') !== null ){
-                return redirect()->route('company.profile.page')->with('success', 'Login Successfull');
+                return redirect()->route('payment')->with('success', 'Login Successfull');
             }
             return redirect()->route('customer.dashboard.dashboard')->with('success', 'Login Successfull');
         }

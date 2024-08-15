@@ -67,7 +67,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="main-logo-wrapper">
-                                <a href="{{ route('home.page') }}">
+                                <a href="{{ route('home.page') }}/">
                                     <img src="{{ asset('assets/Images/logo.png')}}"  class="img-fluid" alt="logo-img">
                                 </a>
                             </div>
@@ -130,21 +130,26 @@
                         <h2>Sociedad Anonima:</h2>
                         <p class="my-4">A Sociedad Anónima in Costa Rica is a distinct legal entity, separate from its owners, and its capital is divided into shares. One key advantage of this corporate structure is that shareholders` liability is confined to their contributions. This organizational form is widely embraced in the country, offering benefits such as asset protection, legal capacity for business transactions and contract signing, and a clear separation of responsibilities between the company and its owners.</p>
                         <p class="my-4">Within a Sociedad Anónima, the company can undertake obligations and exercise rights without shareholders or legal representatives needing to personally guarantee these commitments. Shares may possess various characteristics, including registration status, preference, redeemability, voting rights, and can be denominated in any currency. Trading and transferring shares are generally unrestricted, except in cases of statutory limitations. Liability is restricted to the company`s assets and the contributions of its shareholders. Forming this type of society requires a minimum of four individuals to establish a board of directors, consisting of: PRESIDENT, SECRETARY, TREASURER, and FISCAL.</p>
-                    <div class="btn-wrap">
+                    <!-- <div class="btn-wrap">
                         <a class="btn btn-primarya btn-lga brown-btn btn px-4 my-2" href="{{ route('company.profile.page') }}">Get Started</a>
-                    </div>
+                    </div> -->
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="right content company-image-upper">
                         <img src="{{ asset('assets/Images/Form-a-company-3.png') }}" class="img-fluid my-2" alt="">
                         <h2>Sociedad de Responsabilidad Limitada:</h2>
-                        <p class="my-4">A Sociedad de Responsabilidad Limitada, commonly known as an LLC, is a business entity that unites two or more individuals or legal entities. Each participant assumes sole accountability for the capital, assets, or rights they contribute, without representation through financial instruments. In this business structure, partners benefit from limited liability, being responsible only for their contributed amount in case of company debts.</p>
-                        <p class="my-4">In the specific context of Costa Rica, the Sociedad de Responsabilidad Limitada is regulated by the Commercial Code. While lacking a precise definition in this legal framework, it is established as a commercial society that cannot be formed through public subscription. Comprising partners who can be natural or legal persons, their liability is limited to the contributions made, except in cases where the law extends such liability.</p>
-                        <p class="my-4">The capital of the Sociedad de Responsabilidad Limitada is represented by nominative shares, subject to formalities dictated by the law and never endorsed. Notably, these shares hold equal value and cannot be represented by certificates. This characteristic distinctly sets the Sociedad de Responsabilidad Limitada apart from capital societies, excluding the possibility of equating shares with securities. A minimum of 2 people is required to form this type of society.</p>
-                    <div class="btn-wrap">
+                        <p class="my-4">A Sociedad de Responsabilidad Limitada, commonly known as an LLC, is a business entity that unites two or more individuals or legal entities. Each participant assumes sole accountability for the capital, assets, or rights they contribute, without representation through financial instruments. In this business structure, partners benefit from limited liability, being responsible only for their contributed amount in case of company debts. In the specific context of Costa Rica The Sociedad de Responsabilidad Limitada is regulated by the Commercial Code.</p>
+                        <p class="my-4">While lacking a precise definition in this legal framework, it is established as a commercial society that cannot be formed through public subscription. Comprising partners who can be natural or legal persons, their liability is limited to the contributions made, except in cases where the law extends such liability. The capital of the Sociedad de Responsabilidad Limitada is represented by nominative shares, subject to formalities dictated by the law and never endorsed. Notably, these shares hold equal value and cannot be represented by certificates. This characteristic distinctly sets the Sociedad de Responsabilidad Limitada apart from capital societies</p>
+                        <!-- <p class="my-4">The capital of the Sociedad de Responsabilidad Limitada is represented by nominative shares, subject to formalities dictated by the law and never endorsed. Notably, these shares hold equal value and cannot be represented by certificates. This characteristic distinctly sets the Sociedad de Responsabilidad Limitada apart from capital societies, excluding the possibility of equating shares with securities. A minimum of 2 people is required to form this type of society.</p> -->
+                    <!-- <div class="btn-wrap">
                         <a class="btn btn-primarya btn-lga brown-btn btn px-4 my-2" href="{{ route('company.profile.page') }}">Get Started</a>
+                    </div> -->
                     </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="btn-wrap d-flex justify-content-center">
+                        <a class="btn btn-primarya btn-lga brown-btn btn px-4 my-2" href="{{ route('company.profile.updated.page') }}">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -170,7 +175,7 @@
                     <p class="mt-4 mb-3">Companies must have a minimum social capital, generally divided into shares or quotas. Although Costa Rican law does not set a minimum amount, it must be defined in the company`s bylaws. The capital amount in shares should be clearly indicated, for example, 100 shares with a value of 1 USD each or 100 quotas with a value of one hundred colones, equivalent to 10 thousand Costa Rican colones. It is important to note that a company can be established with as little as 20 USD of social capital or its equivalent in colones.</p>
                     <p class="mt-4 mb-5">To establish any company, a minimum of two shareholders is required, who can be individuals or legal entities, either Costa Rican or foreign. After registration in the national registry, it is possible to transfer all shares to a single holder.</p>
                     <div class="btn-wrap text-center pb-4">
-                        <a class="btn btn-primarya btn-lga brown-btn btn px-4 mb-4" href="{{ route('company.profile.page') }}">Get Started</a>
+                        <a class="btn btn-primarya btn-lga brown-btn btn px-4 mb-4" href="{{ route('company.profile.updated.page') }}">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -205,8 +210,8 @@
                         <h2>Transparency and Ultimate Beneficiary Registry:</h2>
                         <p class="mt-4 mb-5">This is the Shareholders Registry at the Central Bank of Costa Rica. In this registry, information is provided about the owners of the shares of the companies, up to the ultimate beneficiary, who is a natural person. The purpose of this registry is to ensure transparency and prevent money laundering by identifying individuals with a stake in the companies and knowing who the true beneficiaries of the shares are.</p>
                         <div class="btn-wrap text-center py-2">
-                            <p>From Your Comapany In Less Than 48 Business Hours:</p>
-                            <a class="btn btn-primarya btn-lga brown-btn btn px-4 my-4" href="{{ route('company.profile.page') }}">Get Started</a>
+                            <p>Form Your Comapany In Less Than 48 Business Hours:</p>
+                            <a class="btn btn-primarya btn-lga brown-btn btn px-4 my-4" href="{{ route('company.profile.updated.page') }}">Get Started</a>
                         </div>
                     </div>
                 </div>

@@ -99,6 +99,40 @@ class CompanyController extends Controller
 
         $responseCookies = $cookieJar->toArray();
         // dd($company);
+        $this->getDocumentByCompany();
+        return view('admin.company.edit', compact('company'));
+    }
+
+    public function getDocumentByCompany()
+    {
+        $client = new Client();
+        $baseUrl = Config::get('services.sixton_backend.base_url');
+        // $id = $request->id;
+        $token = Session::get('api_token');
+
+        $cookieJar = new CookieJar();
+        $response = $client->get($baseUrl, [
+            'cookies' => $cookieJar,
+            'headers' => [
+                'Authorization' => 'Bearer ' . $token,
+                'Accept' => 'application/json', // Adjust based on the API's requirements
+            ],
+        ]);
+        $responseCookies = $cookieJar->toArray();
+
+        $cookieJar->setCookie(new \GuzzleHttp\Cookie\SetCookie([
+            'Name' => 'JSESSIONID',
+            'Value' => '1126D63AA3574FF8EF12B6D6849DFA66',
+        ]));
+        $id = 1;
+        $response = $client->get($baseUrl . 'api/file/company-file/' . $id, [
+            'cookies' => $cookieJar,
+        ]);
+
+        $company = json_decode($response->getBody(), true);
+
+        $responseCookies = $cookieJar->toArray();
+        dd($company);
         return view('admin.company.edit', compact('company'));
     }
 }

@@ -37,10 +37,18 @@
 
     
     <!-- bootstrap css -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
 
-<!-- google font -->
-<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> -->
+    <!-- google font -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            @if (Auth::check())
+                window.location.href = 'http://ec2-3-12-127-250.us-east-2.compute.amazonaws.com/index.php/payment';
+            @endif
+        });
+    </script>
 
 </head>
 
@@ -123,15 +131,13 @@
 
 <!--Form start-->
 <form id="signUpForm" enctype="multipart/form-data">
-                    <!-- start step indicators -->
-                    <!-- <div class="form-header d-flex mb-4">
-                        <span class="stepIndicator">Account Setup</span>
-                        <span class="stepIndicator">Social Profiles</span>
-                        <span class="stepIndicator">Personal Details</span>
-                    </div> -->
-                    <!-- end step indicators -->
-
-
+        <!-- start step indicators -->
+        <!-- <div class="form-header d-flex mb-4">
+            <span class="stepIndicator">Account Setup</span>
+            <span class="stepIndicator">Social Profiles</span>
+            <span class="stepIndicator">Personal Details</span>
+        </div> -->
+        <!-- end step indicators -->
       <!-- step Welcome start -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
     @method('post')
@@ -140,16 +146,16 @@
                         <div class="container">
                             <div class="row text-center">
                                 <div class="col-md-12">
-                                    <div class="form-head">
+                                    <div class="form-head mb-5">
                                         <h1>Start your business in Costa Rica with confidence</h1>
                                         <p>Join over 1,000,000 happy business owners. Get started by choosing your entity type and state of formation.</p>
-                                        <a onClick="getTypeId(1)" class="btn btn-lga brown-btn btn px-4 py-3" href="javascript:;" >Sociedad de Responsabilidad Limitada</a>
-                                        <a onClick="getTypeId(2)" class="btn btn-lga grey-btn shadow-btn btn px-4 py-3" href="javascript:;">Sociedad Anonima</a>
+                                        <!-- <a onClick="getTypeId(1)" class="btn btn-lga brown-btn btn px-4 py-3" href="javascript:;" >Sociedad de Responsabilidad Limitada</a>
+                                        <a onClick="getTypeId(2)" class="btn btn-lga grey-btn shadow-btn btn px-4 py-3" href="javascript:;">Sociedad Anonima</a> -->
                                     </div>
-                                    <div class="form-content">
+                                    <!-- <div class="form-content">
                                         <h2>Start your business with confidence</h2>
                                         <p>Join over 1,000,000 happy business owners. Get started by choosing your entity type and state of formation.</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <div class="row justify-content-center text-center package-boxes">
@@ -200,7 +206,7 @@
                     </section>
         </div>
 
-        <div class="step">
+        <div class="step step-2">
             <section class="from-wrapper  py-4">
                 <div class="container">
                     <div class="row justify-content-center text-center">
@@ -261,7 +267,7 @@
                                         <input type="text" class="form-control" id="inputZip" name="zipCode">
                                     </div>
                                     <div id="shareHolder-container" class="share-holder">
-                                        <div id="form-template" class="">
+                                        <div id="form-template" >
                                             <div class="represent text-center py-5 selfAddress">
                                                 <p>Legal Representation:</p>
                                                 <h3>ShareHolder 1</h3>
@@ -326,11 +332,13 @@
                                                 <p>Legal Representatives are authorized to sign in the name of the company once shareholders agree to what is being signed for. Usually, all shareholders are Legal Representatives.</p>
                                                 <div class="radio-wrap">
                                                     <div class="radio">
-                                                        <input type="radio" id="legel_representative_inputYes" name="represent" name="firstShareholderIsLR" value="inputYes" />
+                                                    {{-- name="represent" --}}
+                                                        <input type="radio" id="legel_representative_inputYes" name="firstShareholderIsLR"  value="inputYes"  class="firstShareholderIsLR" onchange="onChangeRepresentative()"/>
                                                         <label for="inputYes">Yes</label>
                                                     </div>
                                                     <div class="radio">
-                                                        <input type="radio" id="legel_representative_inputNo" name="represent" value="inputNo" checked/>
+                                                    {{-- name="represent" --}}
+                                                        <input type="radio" id="legel_representative_inputNo"  name="firstShareholderIsLR" value="inputNo" class="firstShareholderIsLR" checked onchange="onChangeRepresentative()"/>
                                                         <label for="inputNo">No</label>
                                                     </div>
                                                 </div>
@@ -343,12 +351,11 @@
                                                 <p>Managers are responsible for the administration of the company. Therefore, all shareholders, some, or none of them can take on this role.</p>
                                                 <div class="radio-wrap">
                                                     <div class="radio">
-                                                        <input type="radio" id="inputManageYes" name="firstShareholderIsManger" value="1"
-                                                            />
+                                                        <input type="radio" id="inputManageYes" name="firstShareholderIsManger" class="firstShareholderIs-Manger" value="1" onchange="onChangeRepresentative()" />
                                                         <label for="inputManageYes">Yes</label>
                                                     </div>
                                                     <div class="radio">
-                                                        <input type="radio" id="inputManageNo" name="firstShareholderIsManger"  value="0" checked />
+                                                        <input type="radio" id="inputManageNo" name="firstShareholderIsManger" class="firstShareholderIs-Manger"  value="0" checked onchange="onChangeRepresentative()" />
                                                         <label for="inputManageNo">No</label>
                                                     </div>
                                                 </div>
@@ -368,7 +375,7 @@
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="shares">Percentage Of Shares</label>
-                                                <input type="text" class="form-control" required value="100" id="firstSharehoderPercentage" name="firstSharehoderPercentage" placeholder="Percentage of Shares">
+                                                <input type="text" class="form-control SharehoderPercentage" required value="100" id="firstSharehoderPercentage" name="firstSharehoderPercentage" placeholder="Percentage of Shares">
                                                
                                             </div>
                                         </div>
@@ -920,18 +927,19 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 d-flex justify-content-between p-0">
                     <div class="btn-wrap">
-                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
+                        {{-- <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button> --}}
                         <button type="button" id="addMore">Add More</button>
                         <!-- <button type="button" onclick="addMoreFN()" id="addMore">Add More</button> -->
                         <span id="percentage_shareholder"></span>
                     </div>
-                    @if(empty(session('user_id')))
-                    <button type="button" id="guest_user" onclick="window.location='{{ route("login.page") }}'">Next</button>
-                    @else
-                    <input type="hidden" id="userId" value="{{ session('user_id') }}">
-                    <button type="button" id="nextBtn" onclick="nextPrev_0()">Next</button>
-                    @endif
-                    <button type="button" id="nextBtn-1" onclick="nextPrev_1()">Next</button>
+                    {{-- @if(empty(session('user_id')))
+                        <button type="button" id="guest_user" onclick="window.location='{{ route("login.page") }}'">Next</button>
+                    @else --}}
+                        {{-- <input type="hidden" id="userId" value="{{ session('user_id') }}"> --}}
+                        {{-- <button type="button" id="nextBtn" onclick="nextPrev_0()">Next</button> --}}
+                    {{-- @endif --}}
+                    <button type="button" id="nextBtn-1" >Next</button>
+                    <button type="button" id="submit_btn" style="display:none;" onclick="redirectToLogin()">Submit</button>
                     <button type="button" id="nextBtn-2" onclick="nextPrev_2()">Next</button>
                     <button type="button" id="nextBtn-3" onclick="nextPrev_3()">Next</button>
                     <!-- <button type="button" id="nextBtn-4" onclick="nextPrev_4(+1)">Next</button> -->
@@ -942,24 +950,12 @@
         </div>
         <!-- end previous / next buttons -->
     </form>
+    <!--Form end-->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!--Form end-->
-
-   <!-- footer start  -->
-   <footer class="bg-blue text-white px-5 desktop-home-fotter">
+    <!-- footer start  -->
+    <footer class="bg-blue text-white px-5 desktop-home-fotter">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -1135,133 +1131,26 @@
         </div>
     </section>
     <!-- footer end -->
-
-
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/jquery-3.3.1.min.js"></script> -->
-    <!-- <script src="assets/js/jquery.fancybox.min.js"></script> -->
-    <!-- <script src="assets/js/popper-min.js"></script> -->
-    <!-- <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/step-form-js.js"></script> -->
     <script>
-        /*
-        const percentage = 100;
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const formTemplate = document.getElementById('form-template');
-            const formContainer = document.getElementById('shareHolder-container');
-            const addMoreButton = document.getElementById('addMore');
-            let shareholderCount = 1;
-
-            addMoreButton.addEventListener('click', () => {
-                // Clone the form template
-                const newForm = formTemplate.cloneNode(true);
-                shareholderCount++;
-                
-                // Update the form header with the new shareholder number
-                newForm.querySelector('h3').textContent = `ShareHolder ${shareholderCount}`;
-                
-                // Reset form inputs
-                const inputs = newForm.querySelectorAll('input');
-                inputs.forEach(input => {
-                    input.value = '';
-                    input.id = input.id.replace(/\d+$/, '') + shareholderCount; // Update id to be unique
-                });
-
-                // Update the file input
-                const fileInput = newForm.querySelector('input[type="file"]');
-                fileInput.id = `uploadFile${shareholderCount}`;
-                const fileLabel = newForm.querySelector('label[for="uploadFile"]');
-                fileLabel.setAttribute('for', `uploadFile${shareholderCount}`);
-                
-                // Append the cloned form to the form container
-                formContainer.appendChild(newForm);
-            });
-        });
-        */
-        /*document.addEventListener('DOMContentLoaded', () => {
-            const formTemplate = document.getElementById('form-template');
-            const formContainer = document.getElementById('shareHolder-container');
-            const addMoreButton = document.getElementById('addMore');
-            let shareholderCount = 1;
-
-            console.log('yahan tk agya');
-            const getCombinedSharePercentage = () => {
-                const shareInputs = formContainer.querySelectorAll('input[name="firstSharehoderPercentage"]');
-                return Array.from(shareInputs).reduce((total, input) => total + parseFloat(input.value || 0), 0);
-            };
-
-            const canAddMoreForms = () => {
-                console.log('getCombinedSharePercentage()')
-                console.log(getCombinedSharePercentage());
-
-
-                return getCombinedSharePercentage() < 100;
-            };
-
-            const updateAddMoreButtonState = () => {
-                if (canAddMoreForms()) {
-                    console.log('canAddMoreForms()');
-                    console.log(canAddMoreForms());
-
-                    addMoreButton.disabled = false;
-                } else {
-                    addMoreButton.disabled = true;
-                }
-            };
-
-            addMoreButton.addEventListener('click', () => {share
-                if (!canAddMoreForms()) return;
-
-                // Clone the form template
-                const newForm = formTemplate.cloneNode(true);
-                shareholderCount++;
-                
-                // Update the form header with the new shareholder number
-                newForm.querySelector('h3').textContent = `ShareHolder ${shareholderCount}`;
-                
-                // Reset form inputs
-                const inputs = newForm.querySelectorAll('input');
-                inputs.forEach(input => {
-                    if (input.type === 'text' || input.type === 'file') {
-                        input.value = '';
-                    }
-                    input.id = input.id.replace(/\d+$/, '') + shareholderCount; // Update id to be unique
-                });
-
-                // Update the file input
-                const fileInput = newForm.querySelector('input[type="file"]');
-                fileInput.id = `uploadFile${shareholderCount}`;
-                const fileLabel = newForm.querySelector('label[for="uploadFile"]');
-                fileLabel.setAttribute('for', `uploadFile${shareholderCount}`);
-                
-                // Append the cloned form to the form container
-                formContainer.appendChild(newForm);
-
-                // Update button state
-                updateAddMoreButtonState();
-            });
-
-            // Add event listener to the percentage input to check the combined value
-            formContainer.addEventListener('input', (event) => {
-                if (event.target.name === 'firstSharehoderPercentage') {
-                    updateAddMoreButtonState();
-                }
-            });
-
-            // Initial state update
-            updateAddMoreButtonState();
-        });
-        */
+        var loginUrl = '{{ route('login.page') }}';
+        
+        function redirectToLogin() {
+            window.location.href = loginUrl;
+        }
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const formTemplate = document.getElementById('form-template');
             const formContainer = document.getElementById('shareHolder-container');
             const addMoreButton = document.getElementById('addMore');
             const errorMessageSpan = document.getElementById('percentage_shareholder');
+            const nextButton       = document.getElementById('nextBtn-1'); // Assuming the button has id "nextButton"
+
+            let count = 1;
             let shareholderCount = 1;
-            console.log('yahan tak ponch gae');
+
+            console.log('hello');
+
             const getCombinedSharePercentage = () => {
                 const shareInputs = formContainer.querySelectorAll('input[name="firstSharehoderPercentage"]');
                 return Array.from(shareInputs).reduce((total, input) => total + parseFloat(input.value || 0), 0);
@@ -1275,7 +1164,12 @@
             const canAddMoreForms = () => {
                 return getCombinedSharePercentage() < 100 && allSharesGreaterThanZero();
             };
-            console.log('check');
+
+            const canProceedToNext = () => {
+                const combinedPercentage = getCombinedSharePercentage();
+                return combinedPercentage > 0 && combinedPercentage <= 100 && allSharesGreaterThanZero();
+            };
+
             const updateAddMoreButtonState = () => {
                 if (canAddMoreForms()) {
                     addMoreButton.disabled = false;
@@ -1284,19 +1178,17 @@
                     addMoreButton.disabled = true;
                     if (!allSharesGreaterThanZero()) {
                         errorMessageSpan.textContent = 'All fields must have a value greater than 0.';
-                        console.log('All fields must have a value greater than 0')
                     } else if (getCombinedSharePercentage() > 100) {
                         errorMessageSpan.textContent = 'The combined percentage of shares must be less than 100.';
-                        console.log('The combined percentage of shares must be less than 100.')
                     }
-
                 }
             };
 
             addMoreButton.addEventListener('click', () => {
+
+                console.log('click add more');
                 if (!canAddMoreForms()) return;
 
-                console.log('chalo');
                 // Clone the form template
                 const newForm = formTemplate.cloneNode(true);
                 shareholderCount++;
@@ -1306,10 +1198,19 @@
                 
                 // Reset form inputs
                 const inputs = newForm.querySelectorAll('input');
-                inputs.forEach(input => {
+                inputs.forEach((input, index) => {
                     if (input.type === 'text' || input.type === 'file') {
                         input.value = '';
                     }
+                    
+                    if (input.type === 'radio' && input.name == "firstShareholderIsManger") {
+                        input.name = "firstShareholderIsManger-"+count;
+                    }
+
+                    if (input.type === 'radio' && input.name == "firstShareholderIsLR") {
+                        input.name = "firstShareholderIsLR-"+count;
+                    }
+
                     input.id = input.id.replace(/\d+$/, '') + shareholderCount; // Update id to be unique
                 });
 
@@ -1322,6 +1223,7 @@
                 // Append the cloned form to the form container
                 formContainer.appendChild(newForm);
 
+                count++
                 // Update button state
                 updateAddMoreButtonState();
             });
@@ -1333,16 +1235,90 @@
                 }
             });
 
+            // Event listener for the next button to validate combined percentage
+            nextButton.addEventListener('click', () => {
+                if (canProceedToNext()) {
+                    nextPrev_1();  // Call the next step function if validation passes
+                } else {
+                    if (!allSharesGreaterThanZero()) {
+                        errorMessageSpan.textContent = 'All fields must have a value greater than 0.';
+                    } else if (getCombinedSharePercentage() >= 100) {
+                        errorMessageSpan.textContent = 'The combined percentage of shares must be less than 100.';
+                    }
+                }
+            });
+
             // Initial state update
             updateAddMoreButtonState();
         });
 
+        function onChangeRepresentative() {
+            const formContainer = document.getElementById('shareHolder-container');
+            const nextButton = document.getElementById('nextBtn-1');
+            const submitButton = document.getElementById('submit_btn');
+            const radioGroupsRepresentative = {};
+            const noOptionRespresentive = [];
+
+            const radioInputs = formContainer.querySelectorAll('input.firstShareholderIsLR');
+
+            // Group radio buttons by their name
+            radioInputs.forEach(input => {
+                if (!radioGroupsRepresentative[input.name]) {
+                    radioGroupsRepresentative[input.name] = [];
+                }
+                radioGroupsRepresentative[input.name].push(input);
+            });
+
+            
+            // Check if each group has a selected radio button
+            for (const groupName in radioGroupsRepresentative) {
+                const group = radioGroupsRepresentative[groupName];
+                //const groupAnyYesSelected = group.some(input => input.checked && input.value === 'inputYes');
+                const groupAllSelected = group.some(input => input.checked && input.value === 'inputNo');
+
+                if (groupAllSelected) {
+                    noOptionRespresentive.push('false')
+                }
+            }
+
+
+            const radioGroupsManager = {};
+            const noOptionManager = [];
+
+            const radioInputsManager = formContainer.querySelectorAll('input.firstShareholderIs-Manger');
+
+            // Group radio buttons by their name
+            radioInputsManager.forEach(input => {
+                if (!radioGroupsManager[input.name]) {
+                    radioGroupsManager[input.name] = [];
+                }
+                radioGroupsManager[input.name].push(input);
+            });
+
+            // Check if each group has a selected radio button
+            for (const groupNameManager in radioGroupsManager) {
+                const groupManager = radioGroupsManager[groupNameManager];
+                //const groupAnyYesSelected = group.some(input => input.checked && input.value === 'inputYes');
+                const groupAllSelectedManager = groupManager.some(input => input.checked && input.value === 'inputNo');
+
+                if (groupAllSelectedManager) {
+                    noOptionManager.push('false')
+                }
+            }
+
+            
+            if (noOptionRespresentive.length <= 0 && noOptionRespresentive.length <= 0) {
+                    nextButton.style.display = 'none';
+                    submitButton.style.display = 'inline-block';
+            } else {
+                nextButton.style.display = 'inline-block';
+                submitButton.style.display = 'none';
+            }
+        }
     </script>
     <script>
-          console.log("window.location.href",window.location.href)
-          const isLocalStorageExist = JSON.parse(localStorage.getItem(window.location.href));
-          console.log(isLocalStorageExist);
-          if(!isLocalStorageExist) {
+        const isLocalStorageExist = JSON.parse(localStorage.getItem(window.location.href));
+        if (!isLocalStorageExist) {
             localStorage.setItem(window.location.href,JSON.stringify({
                 legelRepresentative: false,
                 manager: false,
@@ -1354,7 +1330,7 @@
                     shareholder: []
                 }
             }))
-          }
+        }
 
         var isDontHaveAddress = false
         var typeId = 1;
@@ -1362,36 +1338,36 @@
         showDivs_(slideIndex_);
 
         function plusDivs_(n) {
-        showDivs_(slideIndex_ += n);
+            showDivs_(slideIndex_ += n);
         }
 
         function showDivs_(n) {
-        var i;
-        var x = document.getElementsByClassName("reviewRatingSlides");
-        if (n > x.length) {slideIndex_ = 1}
-        if (n < 1) {slideIndex_ = x.length}
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        x[slideIndex_-1].style.display = "block";  
+            var i;
+            var x = document.getElementsByClassName("reviewRatingSlides");
+            if (n > x.length) {slideIndex_ = 1}
+            if (n < 1) {slideIndex_ = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex_-1].style.display = "block";
         }
 
         var slideIndex = 1;
         showDivs(slideIndex);
 
         function plusDivs(n) {
-        showDivs(slideIndex += n);
+            showDivs(slideIndex += n);
         }
 
         function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("homeInfoSlider");
-        if (n > x.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = x.length}
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-        }
-        x[slideIndex-1].style.display = "block";  
+            var i;
+            var x = document.getElementsByClassName("homeInfoSlider");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex-1].style.display = "block";
         }
 
         function getTypeId(id) {
@@ -1443,8 +1419,6 @@
     
     }
 
-    
-
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
@@ -1452,13 +1426,15 @@
     <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/step-form-js.js') }}"></script>
-
-
-
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
 
 </html>
+
+<script>
+
+    
+
+</script>

@@ -66,4 +66,8 @@ class DashboardController extends Controller
         
         return view('admin.company.edit', compact('companies'));
     }
+
+    public function companyDetails(){
+        return view('customer.pages.companyDetails');
+    }
 }

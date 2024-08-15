@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="main-logo-wrapper">
-                                <a href="{{ route('home.page') }}">
+                                <a href="{{ route('home.page') }}/">
                                     <img src="{{ asset('assets/Images/logo.png')}}"  class="img-fluid" alt="logo-img">
                                 </a>
                             </div>
@@ -88,7 +88,7 @@
                                 </li>
                                 <li><a href="{{ route('pricing.page') }}">Pricing</a></li>
                                 <li><a href="{{ route('about.page') }}">About us</a></li>
-                                <li><a href="{{ route('company.profile.page') }}" class="brown-btn btn">Form a Company</a></li>
+                                <li><a href="{{ route('company.page') }}" class="brown-btn btn">Form a Company</a></li>
                                 <li><a href="{{ route('login.page') }}">Login</a></li>
                             </ul>
                         </div>
@@ -104,9 +104,9 @@
     <section class="form1 bg-grey py-5">
         <div class="container">
             <div class="form-wrapper  bg-white">
-                <div class="figure">
+                <!-- <div class="figure">
                     <img src="{{ asset('assets/Images/logo.png')}}" class="img-fluid text-center" alt="logo">
-                </div>
+                </div> -->
                 <form class="pt-3" method="post" action="{{ route('customer.auth') }}">
                 @csrf
                     <div class="form-group pb-3">
@@ -114,7 +114,7 @@
                                 placeholder="Email Address" name="userEmail" required class=""> </div>
                     </div>
                     <div class="form-group py-1 pb-3">
-                        <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="text"
+                        <div class="input-field"> <span class="fas fa-lock p-2"></span> <input type="password"
                                 placeholder="Password" name="userPassword" required class=""> 
                                 <!-- <button class="btn bg-white text-muted">
                                 <span class="far fa-eye-slash"></span> </button> -->

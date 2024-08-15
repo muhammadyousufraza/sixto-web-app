@@ -25,6 +25,19 @@
         <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        <style>
+            .error-message {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+            .success-message {
+                color: green;
+                font-size: 14px;
+                margin-top: 15px;
+                text-align: center;
+            }
+        </style>
 </head>
 
 <body>
@@ -129,7 +142,60 @@
                         <p class="lead fw-normal text-muted mb-4">
                             Explore Our Migration Services for detailed information on how we can help you achieve your goals. We specialize in residency procedures, investor residency, and resident manager residency.
                         </p>
-                        <a class="btn btn-primarya btn-lga brown-btn btn px-4" href="#scroll-target">Contact Us</a>
+                        <!-- <a class="btn btn-primarya btn-lga brown-btn btn px-4" href="#scroll-target">Contact Us</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="contact-form card">
+                        <div class="card-body">
+                            <h3>Contact Us</h3>
+                            <form id="Contact_form" class="contact-form">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label>Full Name</label>
+                                            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Full Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label>Email Address</label>
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email Address" required>
+                                            <div class="error-message email-error"></div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Phone</label>
+                                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Phone No" required>
+                                            <div class="error-message phone-error"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label>Country</label>
+                                            <select id="inputNationnal2" class="form-control" name="firstShareholderNationality" required>
+                                                <option value="0">Choose...</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Service</label>
+                                            <input type="text" class="form-control" id="service" value="Migracion" name="service" placeholder="Migracion" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <label>Message</label>
+                                            <textarea class="form-control" id="message" name="message" placeholder="Type Message" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-ftr">
+                                    <button href="#" class="brown-btn btn" type="submit" id="submit_btn">Contact Us</button>
+                                    <div class="success-message" id="successMessage" style="display:none;">Your message has been sent successfully!</div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,6 +381,75 @@
     <!-- <script src="assets/js/bootstrap.min.js"></script> -->
     <!-- <script src="assets/js/owl.carousel.min.js"></script> -->
     <!-- <script src="assets/js/custom.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        document.getElementById('Contact_form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var phonePattern = /^\+?[1-9]\d{1,14}$/; // International phone number pattern
+
+            var emailErrorElements = document.getElementsByClassName('email-error');
+            var phoneErrorElements = document.getElementsByClassName('phone-error');
+            var successMessageElement = document.getElementById('successMessage');
+
+            // Clear previous error messages
+            for (var i = 0; i < emailErrorElements.length; i++) {
+                emailErrorElements[i].textContent = '';
+            }
+            for (var i = 0; i < phoneErrorElements.length; i++) {
+                phoneErrorElements[i].textContent = '';
+            }
+            successMessageElement.style.display = 'none'; // Hide previous success message
+
+            var isValid = true;
+
+            if (!emailPattern.test(email)) {
+                for (var i = 0; i < emailErrorElements.length; i++) {
+                    emailErrorElements[i].textContent = 'Please enter a valid email address.';
+                }
+                isValid = false;
+            }
+
+            if (!phonePattern.test(phone)) {
+                for (var i = 0; i < phoneErrorElements.length; i++) {
+                    phoneErrorElements[i].textContent = 'Please enter a valid phone number.';
+                }
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Simulate form submission and display success message
+                setTimeout(function() {
+                    successMessageElement.style.display = 'block';
+                    document.getElementById('Contact_form').reset(); // Reset form fields
+                }, 500); // Simulate a delay for form submission
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+          $.ajax({
+            url: 'https://restcountries.com/v3.1/all',
+            method: 'GET',
+            success: function(data) {
+              var select = $('#inputNationnal2');
+              data.forEach(function(country) {
+                select.append($('<option>', {
+                  value: country.name.common,
+                  text: country.name.common
+                }));
+              });
+            },
+            error: function(error) {
+              console.log('Error fetching country data:', error);
+            }
+          });
+        });
+    </script>
     <script>
         var slideIndex_ = 1;
         showDivs_(slideIndex_);

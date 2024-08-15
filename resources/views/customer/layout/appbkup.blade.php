@@ -28,21 +28,20 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/sixto-icons.css') }}">
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
 
     @stack('custom-css')
 
 </head>
-<body class="dashboard-screens">
+<body class="Dashboard-screens">
 
     @include('customer.layout.headers.main') <!-- Include header content -->
-    <main class="row w-100 main-wrapper">
+    <main class="row w-100">
         <div class="col-3 dashboard-sidebar">
             <div class="profile-head">
-                <div class="pro-db">
-                    <p class="">ZA</p>
+                <div class="">
+                    <p class="pro-db">ZA</p>
                 </div>
                 <div class="pro-title">
                     <p class="">Zain Ahmed</p>
@@ -52,47 +51,39 @@
             <div class="main-menu-bar">
                 <ul>
                     <li>
-                        <a href="/index.php/customer/dashboard"><span class="sixto-icon  icon-dashboard"></span> Dashboard</a>
+                        <a href="/index.php/customer/dashboard">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/index.php/customer/SettingPayment"><span class="sixto-icon  icon-setting"></span> Settings</a>
+                        <a href="/index.php/customer/SettingPayment">Settings</a>
                     </li>
                 </ul>
                 <h3>Company Documents</h3>
                 <ul>
                     <li>
-                        <a href="/index.php/customer/documents"><span class="sixto-icon  icon-docs"></span> Complete Documents</a>
+                        <a href="/index.php/customer/documents">Complete Documents</a>
                     </li>
                     <li>
-                        <a href="/index.php/customer/virtualMail"><span class="sixto-icon  icon-mailbox"></span> Virtual Mailbox</a>
+                        <a href="/index.php/customer/virtualMail">Virtual Mailbox</a>
                     </li>
                 </ul>
                 <h3>Company Details</h3>
                 <ul>
                     <li>
-                        <a href="/index.php/customer/orderHistory"><span class="sixto-icon  icon-order-h"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span></span> Order History/Receipts</a>
+                        <a href="/index.php/customer/orderHistory">Order History/Receipts</a>
                     </li>
                 </ul>
                 <h3>Services</h3>
                 <ul>
                     <li>
-                        <a href="#"><span class="sixto-icon  icon-website"><span class="path1"></span><span class="path2"></span><span class="path3"></span></span> Website</a>
+                        <a href="#">Website</a>
                     </li>
                     <li>
-                        <a href="#"><span class="sixto-icon  icon-logo"></span> Logo</a>
+                        <a href="#">Logo</a>
                     </li>
                     <li>
-                        <a href="#"><span class="sixto-icon  icon-taxes"></span> Taxes</a>
+                        <a href="#">Taxes</a>
                     </li>
                 </ul>
-            </div>
-            <div class="menu-bottom">
-                <div class="setting">
-                    <a href="/index.php/customer/SettingPayment"><span class="sixto-icon  icon-setting"></span> Settings</a>
-                </div>
-                <div class="logout-btn">
-                    <a href="{{route('customer.logout')}}"><span class="sixto-icon dropdown-item icon-logout"></span> Logout</a>
-                </div>
             </div>
             <!-- <div class="p-3 h6 d-flex">
                 <p><i class="fa-solid fa-paper-plane px-2"></i></p>
@@ -133,8 +124,7 @@
                 <p class="h6 align-self-center m-0">Taxes</p>
             </div> -->
         </div>
-         <input type="hidden" id="sessionKey" value="{{ session('user_id', 'not exist') }}">
-        <div class="col-9 dashboard-content-a">
+        <div class="col-9">
             @yield('content') <!-- Main content section -->
         </div>
     </main>
@@ -150,61 +140,6 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var dropbtn = document.querySelector('.dropbtn');
-            var dropdownContent = document.querySelector('.dropdown-content');
-
-            dropbtn.addEventListener('click', function() {
-                dropdownContent.classList.toggle('show');
-            });
-
-            window.addEventListener('click', function(e) {
-                if (!e.target.matches('.dropbtn')) {
-                    if (dropdownContent.classList.contains('show')) {
-                        dropdownContent.classList.remove('show');
-                    }
-                }
-            });
-        });
-
-    </script>
-    <script>
-           $(document).ready(function() {
-            const sessionValue = document.getElementById('sessionKey').value;
-            // alert(sessionValue);
-            $.ajax({
-                url: 'http://ec2-3-12-127-250.us-east-2.compute.amazonaws.com:8080/api/company/'+ sessionValue, 
-                method: 'GET',
-                headers: {
-                    'Cookie': 'JSESSIONID=1126D63AA3574FF8EF12B6D6849DFA66',
-                },
-                success: function(data) {
-                    var company = data; 
-
-                    var newRow = `
-                        <tr class="">
-                            <td class="col-2">${company.firstName}</td>
-                            <td class="col-2">${company.secondName}</td>
-                            <td class="col-2">${company.state}</td>
-                            <td class="col-2">${company.companyType}</td>
-                            <td class="col-2">
-                                <span class="col-2 fit-content last">
-                                    <div class="border orange-border last p-2 border-25">
-                                        <p class="orange-text">View Company</p>
-                                    </div>
-                                </span>
-                            </td>
-                        </tr>`;
-                    $('table tbody').append(newRow);
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.log('Error:', textStatus, errorThrown);
-                }
-            });
-        });
-
-    </script>
     <script>
         AOS.init();
     </script>
